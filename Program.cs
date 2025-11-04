@@ -4,17 +4,13 @@ using System.Linq;
 
 namespace LabWork.Geometry
 {
-    /// <summary>
-    /// Інтерфейс для виводу інформації про фігуру.
-    /// </summary>
+   
     interface IPrintable
     {
         void Print();
     }
 
-    /// <summary>
-    /// Абстрактний клас геометричної фігури.
-    /// </summary>
+   
     abstract class Shape : IPrintable
     {
         public abstract double CalculateArea();
@@ -35,9 +31,7 @@ namespace LabWork.Geometry
         }
     }
 
-    /// <summary>
-    /// Клас для зберігання координат точки.
-    /// </summary>
+  
     struct Point
     {
         public double X { get; set; }
@@ -52,9 +46,7 @@ namespace LabWork.Geometry
         public override string ToString() => $"({X}; {Y})";
     }
 
-    /// <summary>
-    /// Клас для трикутника.
-    /// </summary>
+   
     class Triangle : Shape
     {
         private Point[] _points = new Point[3];
@@ -102,16 +94,14 @@ namespace LabWork.Geometry
             double x2 = _points[1].X, y2 = _points[1].Y;
             double x3 = _points[2].X, y3 = _points[2].Y;
 
-            // Формула площі через визначник
+           
             return Math.Abs((x1 * (y2 - y3) +
                              x2 * (y3 - y1) +
                              x3 * (y1 - y2)) / 2.0);
         }
     }
 
-    /// <summary>
-    /// Клас для опуклого чотирикутника.
-    /// </summary>
+   
     class ConvexQuadrilateral : Shape
     {
         private Point[] _points = new Point[4];
@@ -160,7 +150,7 @@ namespace LabWork.Geometry
 
         public override double CalculateArea()
         {
-            // Формула Гаусса для багатокутників
+           
             double area = 0;
             for (int i = 0; i < 4; i++)
             {
@@ -192,9 +182,7 @@ namespace LabWork.Geometry
         }
     }
 
-    /// <summary>
-    /// Головний клас програми.
-    /// </summary>
+  
     class Program
     {
         static void Main()
